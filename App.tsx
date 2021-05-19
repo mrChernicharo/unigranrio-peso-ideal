@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -21,6 +21,7 @@ export type Gender = "male" | "female";
 export default function App() {
   const [gender, setGender] = useState<Gender>("female");
   const [height, setHeight] = useState(1.65);
+  const [idealWeight, setIdealWeight] = useState(0);
 
   function handleGenderToggle() {
     const next = gender === "female" ? "male" : "female";
@@ -36,6 +37,18 @@ export default function App() {
     setHeight(next);
   }
 
+  function calculateIdealWeight() {
+    if (gender === "male") {
+      setIdealWeight(Number((72.7 * height - 58).toFixed(2)));
+    } else {
+      setIdealWeight(Number((62.1 * height - 44.7).toFixed(2)));
+    }
+  }
+
+  useEffect(() => {
+    calculateIdealWeight();
+  }, [gender, height]);
+
   return (
     <SafeAreaView>
       <Header />
@@ -48,10 +61,7 @@ export default function App() {
         decrementHeight={handleDecrement}
       />
 
-      <Output weight={80} />
-
-      <Text>{gender}</Text>
-      <Text>{height}</Text>
+      <Output weight={idealWeight} />
     </SafeAreaView>
   );
 }

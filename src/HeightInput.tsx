@@ -17,7 +17,7 @@ const HeightInput = ({ height, incrementHeight, decrementHeight }: Props) => {
         <RectButton style={s.button} onPress={decrementHeight}>
           <Text style={s.buttonText}>-</Text>
         </RectButton>
-        <TextInput value={String(height) + "m"} />
+        <TextInput style={s.input} value={String(height) + "m"} />
         <RectButton style={s.button} onPress={incrementHeight}>
           <Text style={s.buttonText}>+</Text>
         </RectButton>
@@ -28,13 +28,13 @@ const HeightInput = ({ height, incrementHeight, decrementHeight }: Props) => {
 
 const s = StyleSheet.create({
   container: {
-    borderColor: "red",
-    borderWidth: 1,
+    // borderColor: "red",
+    // borderWidth: 1,
     marginTop: 12,
     padding: 10,
   },
   inputContainer: {
-    borderColor: "red",
+    borderColor: "green",
     borderWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -45,7 +45,9 @@ const s = StyleSheet.create({
     color: "#fff",
   },
   label: {},
-  input: {},
+  input: {
+    fontSize: 30,
+  },
   button: {
     width: 34,
     alignItems: "center",
