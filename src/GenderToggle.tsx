@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Switch, Text } from "react-native";
+import { Gender } from "../App";
 
-interface Props {}
+interface GenderProps {
+  gender: Gender;
+  genderToggle: () => void;
+}
 
-const Gender = () => {
-  const [gender, setGender] = useState("female");
-  function toggleSwitch() {
-    const next = gender === "female" ? "male" : "female";
-    setGender(next);
-  }
-
+const GenderToggle = ({ gender, genderToggle }: GenderProps) => {
   return (
     <View style={styles.outerContainer}>
       <Text style={styles.switchLabel}>Informe o gênero</Text>
@@ -19,7 +17,7 @@ const Gender = () => {
           trackColor={{ false: "lightblue", true: "pink" }}
           thumbColor={"#fff"}
           ios_backgroundColor={gender === "female" ? "pink" : "lightblue"}
-          onValueChange={toggleSwitch}
+          onValueChange={genderToggle}
           value={gender === "female"}
         />
         <Text>Feminino</Text>
@@ -27,6 +25,8 @@ const Gender = () => {
     </View>
   );
 };
+
+export default GenderToggle;
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -46,4 +46,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-export default Gender;
