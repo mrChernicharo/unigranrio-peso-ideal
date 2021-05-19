@@ -14,6 +14,7 @@ import {
 import Header from "./src/Header";
 import GenderToggle from "./src/GenderToggle";
 import HeightInput from "./src/HeightInput";
+import Output from "./src/Output";
 
 export type Gender = "male" | "female";
 
@@ -46,6 +47,8 @@ export default function App() {
         incrementHeight={handleIncrement}
         decrementHeight={handleDecrement}
       />
+
+      <Output weight={80} />
 
       <Text>{gender}</Text>
       <Text>{height}</Text>

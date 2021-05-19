@@ -10,31 +10,46 @@ interface Props {
 
 const HeightInput = ({ height, incrementHeight, decrementHeight }: Props) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Informe a altura</Text>
-      <RectButton style={styles.button} onPress={incrementHeight}>
-        <Text style={styles.buttonText}>+</Text>
-      </RectButton>
-      <TextInput value={String(height)} />
-      <RectButton style={styles.button} onPress={decrementHeight}>
-        <Text style={styles.buttonText}>-</Text>
-      </RectButton>
+    <View style={s.container}>
+      <Text style={s.label}>Informe a altura</Text>
+
+      <View style={s.inputContainer}>
+        <RectButton style={s.button} onPress={decrementHeight}>
+          <Text style={s.buttonText}>-</Text>
+        </RectButton>
+        <TextInput value={String(height) + "m"} />
+        <RectButton style={s.button} onPress={incrementHeight}>
+          <Text style={s.buttonText}>+</Text>
+        </RectButton>
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
   container: {
     borderColor: "red",
     borderWidth: 1,
     marginTop: 12,
     padding: 10,
   },
+  inputContainer: {
+    borderColor: "red",
+    borderWidth: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   buttonText: {
-    fontSize: 20,
+    fontSize: 24,
+    fontWeight: "600",
+    color: "#fff",
   },
   label: {},
   input: {},
-  button: {},
+  button: {
+    width: 34,
+    alignItems: "center",
+    backgroundColor: "#3c8b56",
+  },
 });
 export default HeightInput;
