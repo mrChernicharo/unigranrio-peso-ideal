@@ -9,32 +9,22 @@ import {
   TouchableOpacity,
   View,
   Switch,
+  TextInputChangeEventData,
 } from "react-native";
+import Header from "./src/Header";
+import Gender from "./src/Gender";
 
 export default function App() {
-  const [isFemale, setIsFemale] = useState<boolean>(true);
   const [userHeight, setUserHeight] = useState(1.7);
 
-  function toggleSwitch() {
-    setIsFemale(!isFemale);
-  }
+  // function handleHeightChange(e) {
+  //   console.log(e);
+  // }
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <Text style={styles.title}>Peso Ideal</Text>
-      <Text style={styles.subtitle}>Avalie sua condição física</Text>
+      <Header />
 
-      <Text style={styles.switchLabel}>Informe o gênero</Text>
-      <View style={styles.switchContainer}>
-        <Text>Masculino</Text>
-        <Switch
-          trackColor={{ false: "lightblue", true: "pink" }}
-          thumbColor={"#fff"}
-          ios_backgroundColor={isFemale ? "pink" : "lightblue"}
-          onValueChange={toggleSwitch}
-          value={isFemale}
-        />
-        <Text>Feminino</Text>
-      </View>
+      <Gender />
 
       <View style={styles.inputGroupContainer}>
         <Text style={styles.inputLabel}>Informe sua altura</Text>
@@ -42,6 +32,7 @@ export default function App() {
           <TextInput
             keyboardType="numeric"
             style={styles.input}
+            // onTextInput={handleHeightChange}
             value={String(userHeight)}
           />
           <TouchableOpacity style={styles.button}>
@@ -69,25 +60,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
   },
-  title: {
-    fontSize: 30,
-  },
-  subtitle: {
-    fontSize: 16,
-  },
-  switchContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    borderColor: "green",
-    borderWidth: 1,
-    borderRadius: 6,
-    width: "100%",
-    paddingVertical: 10,
-  },
-  switchLabel: {
-    fontSize: 16,
-  },
+
   inputGroupContainer: {
     paddingVertical: 20,
   },
