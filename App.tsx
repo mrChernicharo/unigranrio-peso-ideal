@@ -13,58 +13,83 @@ import {
 
 export default function App() {
   const [isFemale, setIsFemale] = useState<boolean>(true);
+  const [userHeight, setUserHeight] = useState(1.7);
 
   function toggleSwitch() {
     setIsFemale(!isFemale);
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView style={styles.container}>
-        <Text style={styles.title}>Peso Ideal</Text>
-        <Text style={styles.subtitle}>Avalie sua condição física</Text>
+    <KeyboardAvoidingView style={styles.container}>
+      <Text style={styles.title}>Peso Ideal</Text>
+      <Text style={styles.subtitle}>Avalie sua condição física</Text>
 
-        <Text style={styles.inputLabel}>Você é</Text>
-        <View style={styles.inputContainer}>
-          <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isFemale ? "#f5dd4b" : "#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
-            value={isFemale}
-          />
-        </View>
+      <Text style={styles.switchLabel}>Informe o gênero</Text>
+      <View style={styles.switchContainer}>
+        <Text>Masculino</Text>
+        <Switch
+          trackColor={{ false: "lightblue", true: "pink" }}
+          thumbColor={"#fff"}
+          ios_backgroundColor={isFemale ? "pink" : "lightblue"}
+          onValueChange={toggleSwitch}
+          value={isFemale}
+        />
+        <Text>Feminino</Text>
+      </View>
 
+      <View style={styles.inputGroupContainer}>
         <Text style={styles.inputLabel}>Informe sua altura</Text>
         <View style={styles.inputContainer}>
           <TextInput
             keyboardType="numeric"
-            returnKeyType="default"
             style={styles.input}
+            value={String(userHeight)}
           />
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Calcular!</Text>
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+
     padding: 30,
-    borderColor: "green",
+    borderColor: "orange",
     borderWidth: 1,
+  },
+  innerContainer: {
+    borderColor: "red",
+    borderWidth: 1,
+    borderRadius: 6,
   },
   title: {
     fontSize: 30,
   },
   subtitle: {
     fontSize: 16,
+  },
+  switchContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    borderColor: "green",
+    borderWidth: 1,
+    borderRadius: 6,
+    width: "100%",
+    paddingVertical: 10,
+  },
+  switchLabel: {
+    fontSize: 16,
+  },
+  inputGroupContainer: {
+    paddingVertical: 20,
   },
   inputContainer: {
     flexDirection: "row",
