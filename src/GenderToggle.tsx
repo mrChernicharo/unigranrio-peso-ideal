@@ -16,9 +16,9 @@ const GenderToggle = ({ gender, genderToggle }: GenderProps) => {
           Masculino
         </Text>
         <Switch
-          trackColor={{ false: "#0000ff", true: "#ff0000" }}
+          trackColor={{ false: "#006eff", true: "#ff0000" }}
           thumbColor={"#fff"}
-          ios_backgroundColor={gender === "female" ? "#ff0000" : "#0000ff"}
+          ios_backgroundColor={gender === "female" ? "#ff0000" : "#006eff"}
           onValueChange={genderToggle}
           value={gender === "female"}
         />
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   switchLabel: {},
   maleText: {
-    color: "#0000ff",
+    color: "#006eff",
   },
   femaleText: {
     color: "#ff0000",

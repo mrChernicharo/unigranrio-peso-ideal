@@ -34,19 +34,22 @@ const s = StyleSheet.create({
     padding: 10,
   },
   inputContainer: {
+    borderRadius: 6,
     borderColor: "green",
     borderWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   buttonText: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "600",
     color: "#fff",
   },
-  label: {},
+  label: {
+    marginBottom: 12,
+  },
   input: {
-    fontSize: 30,
+    fontSize: 28,
   },
   button: {
     width: 34,

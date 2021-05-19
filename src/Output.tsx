@@ -26,6 +26,6 @@ const s = StyleSheet.create({
   },
   title: {},
   result: {
-    fontSize: 30,
+    fontSize: 42,
   },
 });
