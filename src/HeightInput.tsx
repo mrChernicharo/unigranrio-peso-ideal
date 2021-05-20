@@ -28,8 +28,6 @@ const HeightInput = ({ height, incrementHeight, decrementHeight }: Props) => {
 
 const s = StyleSheet.create({
   container: {
-    // borderColor: "red",
-    // borderWidth: 1,
     marginTop: 12,
     padding: 10,
   },

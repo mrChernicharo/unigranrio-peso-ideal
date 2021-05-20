@@ -34,9 +34,6 @@ export default GenderToggle;
 
 const styles = StyleSheet.create({
   outerContainer: {
-    // alignItems: "center",
-    // borderColor: "green",
-    // borderWidth: 1,
     marginTop: 12,
     padding: 10,
   },
@@ -44,9 +41,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    // borderColor: "green",
-    // borderWidth: 1,
-    // borderRadius: 6,
     width: "100%",
     paddingVertical: 10,
   },

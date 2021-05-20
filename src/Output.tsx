@@ -18,8 +18,6 @@ export default Output;
 
 const s = StyleSheet.create({
   container: {
-    // borderWidth: 1,
-    // borderColor: "purple",
     padding: 20,
     marginTop: 12,
     alignItems: "center",
